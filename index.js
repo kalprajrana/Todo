@@ -21,6 +21,19 @@ app.post("/addtask", function(req, res) {
     res.redirect("/");
 });
 
+//post route for updating task
+app.post("/updatetask", function(req, res) {
+    var oldTask = req.body.oldtask;
+    var updatedTask = req.body.updatedtask;
+    if (typeof oldTask === "string" && typeof updatedTask === "string") {
+        var index = task.indexOf(oldTask);
+        if (index !== -1 && updatedTask.trim() !== "") {
+            task[index] = updatedTask.trim();
+        }
+    }
+    res.redirect("/");
+});
+
 app.post("/removetask", function(req, res) {
     var completeTask = req.body.check;
     //check for the "typeof" the different completed task, then add into the complete task
