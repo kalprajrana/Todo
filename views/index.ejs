@@ -24,6 +24,18 @@
 <button formaction="/removetask" type="submit" id="top"> Remove </button>
 </form>
 
+<h2> Update Task </h2>
+
+<form action="/updatetask" method="POST">
+<select name="oldtask">
+<% for( var i = 0; i < task.length; i++){ %>
+    <option value="<%= task[i] %>"><%= task[i] %></option>
+<% } %>
+</select>
+<input type="text" name="updatedtask" placeholder="update task" required>
+<button> Update Task </button>
+</form>
+
 <h2> Completed task </h2>
 
  <% for(var i = 0; i < complete.length; i++){ %>
